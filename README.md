@@ -3,13 +3,13 @@
 Source: Blunt, Booker; Sanders, Rafael; Farmer, Miguel; Richard, Boozman. Building Scalable Applications with Node.js: Learn How to Build Fast and Efficient Server-Side Applications
 
 ## Chapter 1: Introduction to Node.js
-- [ ] Setting Up the Node.js Development Environment
+- [x] Setting Up the Node.js Development Environment
 
 ## Chapter 3: Asynchronous Programming in Node.js
-- [ ] Practical Example: Building an Asynchronous File Reader
+- [x] Practical Example: Building an Asynchronous File Reader
 
 ## Chapter 4: Building Your First HTTP Server with Node.js
-- [ ] Practical Example: Build a Basic "Hello World" HTTP Server and Expand It to Handle Different Routes
+- [x] Practical Example: Build a Basic "Hello World" HTTP Server and Expand It to Handle Different Routes
 
 ## Chapter 5: Introduction to Express.js
 - [ ] Practical Example: Build a Simple Web Server for a To-Do List Application
