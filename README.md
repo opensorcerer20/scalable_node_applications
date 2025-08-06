@@ -51,3 +51,33 @@ Source: Blunt, Booker; Sanders, Rafael; Farmer, Miguel; Richard, Boozman. Buildi
 - [ ] Building Fast and Scalable Apps
 - [ ] Scalability: Preparing for Growth
 
+## Book in exercise form
+### Chapter 1: Set up your node environment
+1. Perform initial node setup
+2. Create file `app.js`
+3. Create a basic `http` server that response to any request with response code 200 and text "`Hello node!`"
+4. Set the server to listen to port `3000`
+
+**Test:** Confirm it works by running `node app.js`, going to `http://locahost:3000` and seeing "`Hello node!`" in the browser
+
+### Chapter 3: Asynchronous programming
+1. Create a new file `fileReader.js`
+2. Import `fs/promises`
+3. Create async function `readFile` that accepts argument `fileName`
+4. Add a `try/catch` block
+5. In the `try` block, use `await` to read the file and echo the contents to console
+6. In the `catch` block, catch the error and echo to console
+7. Outside the above function, call `readFile("example.txt")`
+8. Create a file naemd `example.txt` with the text "This is a test file"
+
+**Test:** Run `fileReader.js` using `node` and confirm the file content is echoed in console
+
+### Chapter 4: HTTP routing
+1. Use the same http server from `Set up your node environment` and file `app.js`
+2. Set headers to send code `200` and content type `text/plain`
+3. If the route is `/hello`, send response `Hello node!`
+4. If the route is `/goodbye`, send response `Goodbye for now!`
+5. For all other routes, send response `Welcome to the server!`
+
+**Test:** Run the server and confirm routes `/`, `/hello`, and `/goodbye` send correct responses
+
