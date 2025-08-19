@@ -35,6 +35,6 @@
     "skipLibCheck": true,
     "outDir": "./dist",
   },
-  "include": ["*.ts","src/**/*.ts"],
+  "include": ["process-env.d.ts","src/**/*.ts"],
   "exclude": ["node_modules"]
 }
