@@ -37,18 +37,18 @@ Source: Blunt, Booker; Sanders, Rafael; Farmer, Miguel; Richard, Boozman. Buildi
 
 ### Chapter 5: Express server
 - [ ] Practical Example: Build a Simple Web Server for a To-Do List Application
-1. Create a new server file `todo_server.js`
+1. Create a new server file `src/index.ts`
 2. Create a new `express` server with middleware to work with `JSON`
 3. Use an in-memory array to store tasks
 4. Add a GET route `/tasks` to get all tasks
 5. Add a POST route `/tasks` to add a new task
-6. For the POST route, the `body` should include a value named `task`. 
+6. For the POST route, the `body` should include a value named `task`.
   - If it is present
     - Create a new task with `task` set to the `body` value `task` and `completed` set to `false`
     - Return the array index as its `id` with a `201`.
   - Else return a `404`
-7. Add a PATCH route `/tasks` to mark a task complete. 
-  - The `params` should include an id which maps to an index on the in-memory tasks array. 
+7. Add a PATCH route `/tasks` to mark a task complete.
+  - The `params` should include an id which maps to an index on the in-memory tasks array.
   - If it exists, set the tasks `complete` value to `true` and return a `201`
   - If no id, non-numeric id, or id not found, return a `404`
 8. Set the server to listen to port `3000`
@@ -59,14 +59,36 @@ Source: Blunt, Booker; Sanders, Rafael; Farmer, Miguel; Richard, Boozman. Buildi
   - send a GET request to get all tasks
   - repeat the above to confirm a second task can be added
 
-**Bonus:** Add a DELETE path to remove a task by id. It should have the same id validation as the PATCH route
-
-
 ## Chapter 6: RESTful API Design with Node.js and Express
 - [ ] Practical Example: Build a RESTful API for Managing a List of Tasks
+1. Start by extending the work from chapter 5
+2. Create a GET route /tasks to get all tasks
+3. Create a GET route /tasks/[id] to get a specific task
+4. Create a POST route /tasks to create a task given a JSON object with `{task: "task text"}`, which is then supplemented with `{completed: false}` on the back end
+5. Create a PUT route /tasks/[id] to update a task given a JSON object with either "task" or "completed" or both specified, and modify the stored data to those values
+6. Create a DELETE route /tasks/[id] to delete a task
+
+**Test::**
+- To get all tasks, send a GET request to `http://localhost:3000/tasks`
+- To get a specific task, send a GET request to `http://localhost:3000/tasks/1` (or any other task ID).
+- To create a new task, send a POST request to `http://localhost:3000/tasks` with a JSON body:  json `{ "task": "Do the laundry", "completed": false }`
+- To update a task, send a PUT request to `http://localhost:3000/tasks/1` with a JSON body:  json `{ "task": "Do the laundry and ironing", "completed": true }`
+- To delete a task, send a DELETE request to `http://localhost:3000/tasks/1`
 
 ## Chapter 7: Working with Databases in Node.js
 - [ ] Practical Example: Build a Database-Backed Task Manager with MongoDB Using Mongoose
+1. Install MongoDB and Mongoose
+2. Definte a mongoose model for Task in models/task.ts
+3. Modify `index.ts` to
+  a. connect to mongodb
+  b. use mongodb to create/read/update/delete tasks
+
+**Test::** (same as chapter 6)
+- To get all tasks, send a GET request to `http://localhost:3000/tasks`
+- To get a specific task, send a GET request to `http://localhost:3000/tasks/1` (or any other task ID).
+- To create a new task, send a POST request to `http://localhost:3000/tasks` with a JSON body:  json `{ "task": "Do the laundry", "completed": false }`
+- To update a task, send a PUT request to `http://localhost:3000/tasks/1` with a JSON body:  json `{ "task": "Do the laundry and ironing", "completed": true }`
+- To delete a task, send a DELETE request to `http://localhost:3000/tasks/1`
 
 ## Chapter 8: User Authentication and Authorization
 - [ ] Example: authenticate user for task management, including 2 users with different tasks
