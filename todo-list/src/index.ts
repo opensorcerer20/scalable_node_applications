@@ -6,18 +6,35 @@ import express, {
 
 dotenv.config();
 const app = express();
+app.use(express.json());
 const port = process.env.PORT;
 
 type NewTask = {
-  name: string;
+  task: string;
 }
 
 type Task = NewTask & {
   completed: boolean;
 };
 
+const tasks: Task[] = [];
+
+app.get('/tasks', (req: Request, res: Response) => {
+  res.status(200).json({data: tasks});
+});
+
+app.post('/tasks', (req: Request, res: Response) => {
+  // @todo validate req.body.task
+  if (req.body.task && typeof req.body.task == "string") {
+    tasks.push({task: req.body.task, completed: false});
+    res.send("Task added");
+  } else {
+    res.status(400).send("Could not add task")
+  }
+});
+
 app.get('/', (req: Request, res: Response) => {
-  res.send('typescript node server is working')
+  res.send("Server running");
 });
 
 app.listen(port, () => {
