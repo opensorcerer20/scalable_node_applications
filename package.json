@@ -6,16 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/opensorcerer20/scalable_node_applications.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/opensorcerer20/scalable_node_applications/issues"
-  },
-  "homepage": "https://github.com/opensorcerer20/scalable_node_applications#readme"
+  "type": "commonjs"
 }
